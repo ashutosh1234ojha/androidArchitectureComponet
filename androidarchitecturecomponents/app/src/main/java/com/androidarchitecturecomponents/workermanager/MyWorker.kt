@@ -16,6 +16,13 @@ class MyWorker : Worker() {
 
         setNotification("Workmanager", "Send by work manager")
 
+        try {
+            Thread.sleep(5000)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
+
+
         return WorkerResult.SUCCESS
 
     }

@@ -31,7 +31,7 @@ class MyWorker : Worker() {
         val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val notificationChannel = NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT)
+            val notificationChannel = NotificationChannel("default", "Work manager", NotificationManager.IMPORTANCE_DEFAULT)
             notificationManager.createNotificationChannel(notificationChannel)
         }
 

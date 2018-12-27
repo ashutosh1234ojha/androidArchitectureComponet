@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     private fun workManager() {
         var constraints = Constraints.Builder()
                 .setRequiresCharging(true).build() as Constraints
+
         val oneTimeWorkRequest = OneTimeWorkRequest.Builder(MyWorker::class.java)
                 .setConstraints(constraints)
                 .addTag("simple_work")

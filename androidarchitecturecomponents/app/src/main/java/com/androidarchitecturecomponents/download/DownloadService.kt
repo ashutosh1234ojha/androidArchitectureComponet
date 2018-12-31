@@ -33,7 +33,6 @@ class DownloadService : IntentService("Download service") {
 
             val inputStream = BufferedInputStream(connectionUrl.getInputStream(),8192)
             val outputStream = FileOutputStream("/sdcard/downloadedfile.jpg")
-//            val outputStream = FileOutputStream("/sdcard/downloadedfile.jpg")
 
             val data = ByteArray(1024)
 
@@ -59,6 +58,7 @@ class DownloadService : IntentService("Download service") {
 
 
             }
+
             outputStream.flush()
             outputStream.close()
             inputStream.close()

@@ -4,9 +4,9 @@ import android.app.IntentService
 import android.content.Intent
 import android.os.Bundle
 import android.os.ResultReceiver
+import android.util.Log
 import java.io.BufferedInputStream
 import java.io.FileOutputStream
-import java.io.IOException
 import java.net.URL
 
 
@@ -16,7 +16,10 @@ import java.net.URL
  */
 class DownloadService : IntentService("Download service") {
 
-    val UPDATE_PROGRESS = 8344
+    companion object {
+          val UPDATE_PROGRESS = 8344
+
+    }
     override fun onHandleIntent(intent: Intent?) {
         val downloadUrl = intent?.getStringExtra("downloadUrl")
         val resultReceiver = intent?.getParcelableExtra<ResultReceiver>("receiver")
@@ -28,8 +31,9 @@ class DownloadService : IntentService("Download service") {
 
             val fileLength = connectionUrl.contentLength
 
-            val inputStream = BufferedInputStream(connectionUrl.getInputStream())
-            val outputStream = FileOutputStream("/sdcard/BarcodeScanner-debug.apk")
+            val inputStream = BufferedInputStream(connectionUrl.getInputStream(),8192)
+            val outputStream = FileOutputStream("/sdcard/downloadedfile.jpg")
+//            val outputStream = FileOutputStream("/sdcard/downloadedfile.jpg")
 
             val data = ByteArray(1024)
 
@@ -39,21 +43,26 @@ class DownloadService : IntentService("Download service") {
             count = inputStream.read(data)
 
             while (count != -1) {
-                count = inputStream.read(data)
                 total += count
 
                 val resultData = Bundle()
                 resultData.putInt("progress", (total * 100 / fileLength))
 
                 resultReceiver?.send(UPDATE_PROGRESS, resultData)
+
+                Log.d("Count", " "+count)
+
                 outputStream.write(data, 0, count)
+
+                count = inputStream.read(data)
+
 
 
             }
             outputStream.flush()
             outputStream.close()
             inputStream.close()
-        } catch (exception: IOException) {
+        } catch (exception: Exception) {
             exception.printStackTrace()
         }
 

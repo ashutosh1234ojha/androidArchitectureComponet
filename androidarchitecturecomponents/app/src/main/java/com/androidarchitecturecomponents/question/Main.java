@@ -22,8 +22,10 @@ public class Main extends AppCompatActivity {
             @Override
             public void onClick(final View view) {
                 Practice practice=new Practice();
-                practice.permutate("ABC",0,2);
+                practice.highestMultiple(20,6);
             }
         });
+
+
     }
 }

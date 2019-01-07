@@ -2,6 +2,8 @@ package com.androidarchitecturecomponents.question;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+
 /**
  * Created by Ashutosh Ojha on 12/31/18.
  * N==2
@@ -127,17 +129,18 @@ public class Practice {
      * 20, 6=18
      */
 
+
     public void highestMultiple(int n, int d) {
 
         int r = n % d;
         int q = n / d;
-        int next , pre ;
+        int next, pre;
 
         if (r != 0) {
             next = n + (d - r);
             pre = d * q;
 
-            int next_n = next - n, n_next = n -pre;
+            int next_n = next - n, n_next = n - pre;
 
             if ((n_next == next_n) || next_n < n_next) {
                 Log.d("TAG", "nearest to " + n + " " + next);
@@ -145,6 +148,38 @@ public class Practice {
             } else {
                 Log.d("TAG", "nearest to " + n + " " + pre);
             }
+
+        }
+    }
+
+    /**
+     * @param input "this is my name"
+     *              output "[This , This is , This is my , This is my name , is , is my , is my name , my , my name , name ]"
+     */
+    public void forwordConsequitivePermutation(String input) {
+        if (input != null) {
+
+            ArrayList<StringBuilder> outputList = new ArrayList<>();
+            String[] inputArray = input.split(" ");
+
+
+            for (int i = 0; i < inputArray.length; i++) {
+
+
+                for (int j = i; j < inputArray.length; j++) {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    for (int k = i; k <= j; k++) {
+
+                        stringBuilder.append(inputArray[k]);
+                        stringBuilder.append(" ");
+                    }
+
+                    outputList.add(stringBuilder);
+                }
+            }
+
+
+            Log.d("Tag", outputList.toString());
 
         }
     }

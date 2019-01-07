@@ -22,7 +22,7 @@ public class Main extends AppCompatActivity {
             @Override
             public void onClick(final View view) {
                 Practice practice=new Practice();
-                practice.highestMultiple(20,6);
+                practice.forwordConsequitivePermutation("This is my name");
             }
         });
 

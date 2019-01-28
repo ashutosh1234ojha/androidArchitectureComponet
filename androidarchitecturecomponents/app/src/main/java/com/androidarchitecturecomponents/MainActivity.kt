@@ -9,6 +9,8 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.androidarchitecturecomponents.workermanager.MyWorker
 import com.lifecycle.LifecycleMain
+import io.reactivex.Observable
+import io.reactivex.ObservableOnSubscribe
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -28,7 +30,15 @@ class MainActivity : AppCompatActivity() {
 
         val btnWorkManagerCancel = findViewById<Button>(R.id.btnWorkManagerCancel)
         btnWorkManagerCancel.setOnClickListener {
+
+
             WorkManager.getInstance().cancelAllWorkByTag("simple_work");        }
+
+        Observable.create<Int> {
+
+        }
+
+        val observable1 = Observable.create(ObservableOnSubscribe<Int> { })
 
 
     }

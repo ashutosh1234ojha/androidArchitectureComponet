@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">android architecture components</string>
+    <string name="title_dynamic_feature">Module Title</string>
+    <string name="title_feature1">Module Title</string>
+    <string name="title_dynamic_feature2">Module Title</string>
+    <string name="title_dynamic_feature3">Module Title</string>
 </resources>

@@ -8,6 +8,8 @@ import android.util.Log;
 
 import com.androidarchitecturecomponents.R;
 
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -28,9 +30,25 @@ public class RxActivity extends AppCompatActivity {
 
         findViewById(R.id.btnProgressBar).setOnClickListener((v) -> {
             subjects();
+
+            flowable();
         });
 
+        Observable<Integer> observable = new Observable<Integer>() {
+            @Override
+            protected void subscribeActual(final Observer<? super Integer> observer) {
 
+            }
+        };
+
+
+    }
+
+    private void flowable() {
+
+        //Flowable from observable
+        Observable<Integer> observable = Observable.range(1, 2000000000);
+        Flowable<Integer> flowable = observable.toFlowable(BackpressureStrategy.BUFFER);
     }
 
     @SuppressLint("CheckResult")
@@ -71,27 +89,16 @@ public class RxActivity extends AppCompatActivity {
         publishSubject.subscribe(observer);
         publishSubject.onNext("a");
 
-        Observable<String> observable = Observable.just("hot","warm","cold")
+        Observable<String> observable = Observable.just("hot", "warm", "cold")
                 .subscribeOn(Schedulers.computation())
-                .map(i -> {return i+" climate";});
+                .map(i -> {
+                    return i + " climate";
+                });
 
         BehaviorSubject<String> bSubject = BehaviorSubject.create();
         observable.subscribe(bSubject);
 
 
-
-
-
-        bSubject.subscribe(s ->{
-            Log.d("subscriber one:",s);
-        });
-        bSubject.subscribe(s ->{
-            Log.d("subscriber two:",s);
-        });
-
-        bSubject.subscribe(s -> {
-
-        });
     }
 }
 

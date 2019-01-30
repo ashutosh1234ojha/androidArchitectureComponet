@@ -1,6 +1,7 @@
 package com.androidarchitecturecomponents;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewPropertyAnimator;
@@ -14,6 +15,8 @@ public class HopViewActivity extends AppCompatActivity {
 
     private Button btnHop;
     private TextView tvMsg;
+    private Handler handler;
+    private Runnable runnable;
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,15 +26,31 @@ public class HopViewActivity extends AppCompatActivity {
         tvMsg=findViewById(R.id.tvMsg);
 
 
+         handler=new Handler();
+         runnable=new Runnable() {
+            @Override
+            public void run() {
+                animationFunction();
+            }
+        };
 
+        handler.post(runnable);
 
        btnHop.setOnClickListener(view -> {
 
-           ViewPropertyAnimator viewPropertyAnimator=tvMsg.animate().translationYBy(-40f).setDuration(200).withEndAction(() -> {
-               tvMsg.animate().translationYBy(40f).setDuration(200);
-           });
+           animationFunction();
 
 
        });
+    }
+
+    private void animationFunction() {
+
+        ViewPropertyAnimator viewPropertyAnimator=tvMsg.animate().translationYBy(-40f).setDuration(200).withEndAction(() -> {
+            tvMsg.animate().translationYBy(40f).setDuration(200);
+
+            handler.postDelayed(runnable,100);
+
+        });
     }
 }

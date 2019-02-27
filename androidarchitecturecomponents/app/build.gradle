@@ -13,6 +13,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -24,7 +26,6 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
-
 
 
 }
@@ -63,6 +64,16 @@ dependencies {
 
     //Image
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+
+    implementation 'com.google.android.libraries.places:places:1.0.0'
+
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+
+
 
 
 }

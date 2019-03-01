@@ -79,16 +79,7 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
         }
 
 
-//    //return count
-//    val notesCount: Int
-//        get() {
-//            val countQuery = "SELECT *FROM" + TABLE_NAME
-//            val db = this.readableDatabase
-//            val cursor = db.rawQuery(countQuery, null)
-//            val count = cursor.count
-//            cursor.close()
-//            return count
-//        }
+
 
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -111,15 +102,6 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
         return id  // return newly inserted row id
     }
 
-//    fun insertTodo(todo: Todo): Long {
-//        val db = this.writableDatabase
-//        val values = ContentValues()
-//        values.put(COLUMN_TITLE, todo.title)
-//        values.put(COLUMN_DESCRIPTION, todo.desc)
-//        val id = db.insert(TABLE_NAME, null, values)
-//        db.close()
-//        return id
-//    }
 
     fun getTodo(id: Long): Todo {
         val db = this.readableDatabase    // get readable database as we are not inserting anything
@@ -139,25 +121,6 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
         return todo
     }
 
-//    fun getTodo(id: Int): Todo {
-//        val db = this.writableDatabase
-//        val cursor = db.query(TABLE_NAME, arrayOf(COLUMN_ID, COLUMN_TITLE, COLUMN_DESCRIPTION, COLUMN_TIMESTAMP), COLUMN_ID + "=?",
-//                arrayOf(id.toString()),
-//                null, null, null, null)
-//        cursor?.moveToFirst()
-//
-//        //prepare todos object
-//
-//        val todo = Todo(
-//                cursor!!.getInt(cursor.getColumnIndex(COLUMN_ID)),
-//                cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)),
-//                cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)),
-//                cursor.getString(cursor.getColumnIndex(COLUMN_TIMESTAMP)))
-//
-//        cursor.close()
-//        return todo
-//
-//    }
 
         fun updateTodo(todo: Todo): Int {
         val db = this.writableDatabase
@@ -166,15 +129,7 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
         values.put(COLUMN_DESCRIPTION, todo.desc)
         return db.update(TABLE_NAME, values, COLUMN_ID + " = ?", arrayOf(todo.id.toString()))   // updating row
     }
-//    fun updateTodo(todo: Todo): Int {
-//        val db = this.writableDatabase
-//        val values = ContentValues()
-//        values.put(COLUMN_TITLE, todo.title)
-//        values.put(COLUMN_DESCRIPTION, todo.title)
-//
-//        return db.update(TABLE_NAME, values, COLUMN_ID + "= ?", arrayOf(todo.id.toString()))
-//
-//    }
+
 
     fun deleteTodo(todo: Todo): Boolean {
         val db = writableDatabase   // Gets the data repository in write mode
@@ -182,10 +137,6 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
         return true
     }
 
-//    fun deleteTodo(todo: Todo): Boolean {
-//        val db = writableDatabase
-//        db.delete(TABLE_NAME, COLUMN_ID + "LIKE ?", arrayOf(todo.id.toString()))
-//        return true
-//    }
+
 
 }

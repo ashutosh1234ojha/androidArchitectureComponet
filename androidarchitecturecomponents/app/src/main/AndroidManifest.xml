@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".slider.MainSliderActivity"
-                  android:taskAffinity="com.affinity.a">
+        <activity
+            android:name=".contentprovider.TodoActivity"
+            android:taskAffinity="com.affinity.a">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -25,8 +26,12 @@
         </activity>
         <service android:name=".download.DownloadService"/>
 
-        <activity android:name=".launchmode.ActivityB"
+        <activity
+            android:name=".launchmode.ActivityB"
             android:launchMode="singleInstance"/>
+
+        <activity
+            android:name=".contentprovider.DateTimePickerActivity"/>
     </application>
 
 </manifest>

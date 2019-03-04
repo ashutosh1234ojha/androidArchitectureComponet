@@ -117,7 +117,7 @@ public class ActivityA extends AppCompatActivity {
         }
 
 
-        // Retrieve a PlacesClient (previously initialized - see MainActivity)
+        // Retrieve a PlacesClient (previously initialized - see MainSliderActivity)
         placesClient = Places.createClient(this);
     }
 

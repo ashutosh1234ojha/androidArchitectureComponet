@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".contentprovider.TodoActivity"
+            android:name=".sharedTransition.CommonActivity"
             android:taskAffinity="com.affinity.a">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -30,8 +30,19 @@
             android:name=".launchmode.ActivityB"
             android:launchMode="singleInstance"/>
 
+
+        <activity
+            android:name=".lifecycle.ActivityB"
+            android:launchMode="singleInstance"/>
+
         <activity
             android:name=".contentprovider.DateTimePickerActivity"/>
+        <activity
+            android:name=".sharedTransition.DetailsActivity"/>
+
+        <!--<activity-->
+        <!--android:name=".threadpoolexecutor.AActivity"/>-->
+        <!--<activity android:name=".threadpoolexecutor.BActivity"/>-->
     </application>
 
 </manifest>

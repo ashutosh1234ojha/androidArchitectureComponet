@@ -34,9 +34,6 @@ class MainActivity : AppCompatActivity() {
 
             WorkManager.getInstance().cancelAllWorkByTag("simple_work");        }
 
-        Observable.create<Int> {
-
-        }
 
         val observable1 = Observable.create(ObservableOnSubscribe<Int> { })
 
@@ -60,12 +57,8 @@ class MainActivity : AppCompatActivity() {
 
             if (it != null && it.state.isFinished) {
                 tvWorkManagerStatus.append("SimpleWorkRequest ${it.state.name}")
-
             }
-
         })
-
-
     }
 
     override fun onDestroy() {

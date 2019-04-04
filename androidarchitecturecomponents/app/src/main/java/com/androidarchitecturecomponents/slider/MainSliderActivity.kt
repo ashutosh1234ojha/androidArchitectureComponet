@@ -20,6 +20,8 @@ class MainSliderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_slider)
         setTvSelectedItem()
+
+
         setHorizontalPicker()
 
         val ivSelector = findViewById<ImageView>(R.id.ivSelector)

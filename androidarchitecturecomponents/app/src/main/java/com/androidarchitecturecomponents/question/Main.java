@@ -3,7 +3,6 @@ package com.androidarchitecturecomponents.question;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.androidarchitecturecomponents.R;
 
@@ -18,12 +17,9 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.main);
 
 
-        findViewById(R.id.btnProgressBar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                Practice practice=new Practice();
-                practice.forwordConsequitivePermutation("This is my name");
-            }
+        findViewById(R.id.btnProgressBar).setOnClickListener(view -> {
+            Practice practice=new Practice();
+            practice.forwordConsequitivePermutation("This is my name");
         });
 
 

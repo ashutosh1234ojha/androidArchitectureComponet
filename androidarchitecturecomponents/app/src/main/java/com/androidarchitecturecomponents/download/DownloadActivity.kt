@@ -53,7 +53,6 @@ class DownloadActivity : AppCompatActivity() {
         request.setDescription("Downloading image")
         request.setDescription("Android")
 
-
         request.allowScanningByMediaScanner()
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "android.ext")

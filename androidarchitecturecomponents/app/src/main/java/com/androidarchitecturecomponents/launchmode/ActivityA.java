@@ -7,7 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.androidarchitecturecomponents.R;
+import com.androidarchitecturecomponents.designpattern.FactoryMethod;
+import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
+import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.PlacesClient;
@@ -42,13 +47,21 @@ public class ActivityA extends AppCompatActivity {
 
         places();
 
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+
         textView = findViewById(R.id.tvScreen);
         textView.setText("Activity A");
 
         findViewById(R.id.btnLaunchA).setOnClickListener(view -> {
 
 //            startActivity(new Intent(this, ActivityA.class));
-            startAutocompleteActivity();
+//            startAutocompleteActivity();
+
+            calendar();
+
+            FactoryMethod.method();
+
+
         });
 
         findViewById(R.id.btnLaunchB).setOnClickListener(view -> {
@@ -62,6 +75,33 @@ public class ActivityA extends AppCompatActivity {
         Date date = new GregorianCalendar(2018, 02, 12).getTime();
 
         Log.d("DateGrego", date + "");
+    }
+
+    private void calendar() {
+
+        new SingleDateAndTimePickerDialog.Builder(this)
+                //.bottomSheet()
+                //.curved()
+                //.minutesStep(15)
+                //.displayHours(false)
+                //.displayMinutes(false)
+                //.todayText("aujourd'hui")
+                .displayListener(new SingleDateAndTimePickerDialog.DisplayListener() {
+                    @Override
+                    public void onDisplayed(SingleDateAndTimePicker picker) {
+                        //retrieve the SingleDateAndTimePicker
+                    }
+                })
+
+                .title("Simple")
+                .listener(new SingleDateAndTimePickerDialog.Listener() {
+                    @Override
+                    public void onDateSelected(Date date) {
+
+                        Log.d("Selected Date", date + "  date");
+
+                    }
+                }).display();
     }
 
     private void recurringTime() {

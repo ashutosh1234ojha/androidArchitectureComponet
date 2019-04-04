@@ -32,7 +32,7 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
     */
 
         // Create table SQL query
-         val CREATE_TABLE = (
+        val CREATE_TABLE = (
                 "CREATE TABLE " + TABLE_NAME + "("
                         + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                         + COLUMN_TITLE + " TEXT,"
@@ -41,6 +41,8 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
                         + ")")
 
         db?.execSQL(CREATE_TABLE)
+
+
 
     }
 
@@ -77,9 +79,6 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
             cursor.close()
             return count
         }
-
-
-
 
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -122,7 +121,7 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
     }
 
 
-        fun updateTodo(todo: Todo): Int {
+    fun updateTodo(todo: Todo): Int {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(COLUMN_TITLE, todo.title)
@@ -136,7 +135,6 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
         db.delete(TABLE_NAME, COLUMN_ID + " LIKE ?", arrayOf(todo.id.toString())) // Issue SQL statement.
         return true
     }
-
 
 
 }

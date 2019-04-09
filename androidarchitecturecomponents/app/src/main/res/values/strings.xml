@@ -4,4 +4,6 @@
     <string name="title_feature1">Module Title</string>
     <string name="title_dynamic_feature2">Module Title</string>
     <string name="title_dynamic_feature3">Module Title</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

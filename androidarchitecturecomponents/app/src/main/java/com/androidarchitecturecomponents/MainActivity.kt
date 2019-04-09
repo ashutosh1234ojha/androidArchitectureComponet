@@ -32,11 +32,12 @@ class MainActivity : AppCompatActivity() {
         btnWorkManagerCancel.setOnClickListener {
 
 
-            WorkManager.getInstance().cancelAllWorkByTag("simple_work");        }
+            WorkManager.getInstance().cancelAllWorkByTag("simple_work");
+        }
 
 
         val observable1 = Observable.create(ObservableOnSubscribe<Int> { })
-
+        test()
 
     }
 
@@ -68,4 +69,30 @@ class MainActivity : AppCompatActivity() {
         lifecycle.removeObserver(LifecycleMain.getInstance())
 
     }
+
+    fun test() {
+
+        val person = Person()
+        print(person.name)
+        print(person.age)
+
+        with(person){
+            print(name)
+            print(age)
+        }
+
+        person.also  {
+            print(it.name)
+        }
+
+    }
+
+    class Person {
+        var name: String? = null
+        var age: Int? = null
+    }
+
+
+
+
 }

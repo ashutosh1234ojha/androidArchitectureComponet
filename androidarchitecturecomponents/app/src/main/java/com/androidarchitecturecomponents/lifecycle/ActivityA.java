@@ -33,6 +33,11 @@ public class ActivityA extends AppCompatActivity {
     }
 
     @Override
+    protected void onNewIntent(final Intent intent) {
+        super.onNewIntent(intent);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         Log.d(TAG1, "onStart"+TAG);

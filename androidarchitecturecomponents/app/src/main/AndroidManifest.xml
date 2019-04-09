@@ -13,36 +13,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <receiver android:name=".NewAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/new_app_widget_info"/>
+        </receiver>
+
         <activity
-            android:name=".sharedTransition.CommonActivity"
+            android:name=".question.Main"
             android:taskAffinity="com.affinity.a">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
-
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <service android:name=".download.DownloadService"/>
 
         <activity
             android:name=".launchmode.ActivityB"
             android:launchMode="singleInstance"/>
-
-
         <activity
             android:name=".lifecycle.ActivityB"
             android:launchMode="singleInstance"/>
+        <activity android:name=".contentprovider.DateTimePickerActivity"/>
+        <activity android:name=".sharedTransition.DetailsActivity"/> <!-- <activity -->
+        <!-- android:name=".threadpoolexecutor.AActivity"/> -->
+        <!-- <activity android:name=".threadpoolexecutor.BActivity"/> -->
+        <receiver android:name=".widget.SimpleAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
 
-        <activity
-            android:name=".contentprovider.DateTimePickerActivity"/>
-        <activity
-            android:name=".sharedTransition.DetailsActivity"/>
-
-        <!--<activity-->
-        <!--android:name=".threadpoolexecutor.AActivity"/>-->
-        <!--<activity android:name=".threadpoolexecutor.BActivity"/>-->
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/simple_app_widget_info"/>
+        </receiver>
     </application>
 
 </manifest>

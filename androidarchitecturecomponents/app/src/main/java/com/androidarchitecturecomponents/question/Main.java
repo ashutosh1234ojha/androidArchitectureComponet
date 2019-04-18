@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.RadioGroup;
 
 import com.androidarchitecturecomponents.R;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -16,6 +18,7 @@ import java.util.LinkedList;
  */
 public class Main extends AppCompatActivity {
 
+    RadioGroup radioGroup;
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,14 +29,28 @@ public class Main extends AppCompatActivity {
 //            Practice practice = new Practice();
 //            practice.forwordConsequitivePermutation("This is my name");
 
-            method1();
+//            method1();
+//
+//            method3();
 
+            method4();
+
+
+        });
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(final RadioGroup group, final int checkedId) {
+
+            }
         });
 
         second();
         method();
 
         method2();
+
+        method4();
 
 
     }
@@ -157,6 +174,58 @@ public class Main extends AppCompatActivity {
 
 
         Log.d("LengthOf", j + "After");
+
+    }
+
+    void method3() {
+        String input = "ramamrt";
+        String[] split = input.split("");
+
+        HashMap<String, Integer> hashMap = new HashMap<>();
+
+        for (String aSplit : split) {
+
+            int value;
+            if (hashMap.containsKey(aSplit)) {
+                value = hashMap.get(aSplit);
+                hashMap.put(aSplit, ++value);
+            } else {
+                hashMap.put(aSplit, 1);
+            }
+        }
+
+        for (String aSplit : split) {
+            if (hashMap.get(aSplit) == 1) {
+                Log.d("FirstNonRepeated", aSplit);
+            }
+        }
+
+        HashSet<String> hashSet = new HashSet<>();
+
+
+    }
+
+    void method4() {
+        String one = "1234";
+        String[] oneSplit = one.split("");
+        String two = "3412";
+        String[] twoSplit = two.split("");
+
+        String min = oneSplit[1];
+
+        for (int j = 1; j < twoSplit.length; j++) {
+            if (min.equals(twoSplit[j])) {
+                Log.d("Rotation", j + "position");
+            }
+        }
+
+
+    }
+
+    String input[] = {"A", "B", "C"};
+
+
+    void method5() {
 
     }
 

@@ -1,8 +1,11 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android'
 
+
 apply plugin: 'kotlin-android-extensions'
+
 
 android {
     compileSdkVersion 28
@@ -79,6 +82,12 @@ dependencies {
 
     implementation 'com.github.florent37:singledateandtimepicker:2.1.4'
 
-
+    //room
+// Extensions = ViewModel + LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.0"
+    kapt "android.arch.lifecycle:compiler:1.1.0"
+// Room
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    kapt "android.arch.persistence.room:compiler:1.0.0"
 
 }

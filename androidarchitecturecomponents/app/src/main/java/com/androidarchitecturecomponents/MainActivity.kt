@@ -4,6 +4,8 @@ import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.work.Constraints
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
@@ -16,10 +18,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    val activity:AppCompatActivity?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         // Add Lifecycle Observer
         lifecycle.addObserver(LifecycleMain.getInstance())
 
@@ -38,6 +40,16 @@ class MainActivity : AppCompatActivity() {
 
         val observable1 = Observable.create(ObservableOnSubscribe<Int> { })
         test()
+
+        val radioGroup:RadioGroup=findViewById(R.id.rg)
+        var numberOfPlayers: Int = 0
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+
+            val chosen = activity?.findViewById<RadioButton>(checkedId)?.text
+            numberOfPlayers = chosen.toString().toInt()
+
+        }
+
 
     }
 
@@ -91,6 +103,7 @@ class MainActivity : AppCompatActivity() {
         var name: String? = null
         var age: Int? = null
     }
+
 
 
 

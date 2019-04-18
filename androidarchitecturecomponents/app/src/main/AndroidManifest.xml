@@ -24,7 +24,7 @@
         </receiver>
 
         <activity
-            android:name=".question.Main"
+            android:name=".room.init.flow.RoomActivity"
             android:taskAffinity="com.affinity.a">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>

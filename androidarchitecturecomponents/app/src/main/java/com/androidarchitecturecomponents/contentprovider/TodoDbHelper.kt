@@ -15,7 +15,7 @@ class TodoDbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,
         var DATABASE_VERSION = 1
     }
 
-    //Database Table name
+    //CommentsDatabase Table name
     private val TABLE_NAME = "todoTable"
     //Attribute
     private val COLUMN_ID = "id"

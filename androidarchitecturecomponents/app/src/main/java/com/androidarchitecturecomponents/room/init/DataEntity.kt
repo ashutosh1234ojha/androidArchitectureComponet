@@ -7,8 +7,10 @@ import android.arch.persistence.room.PrimaryKey
  * Created by Ashutosh Ojha on 4/15/19.
  */
 @Entity(tableName = "tb_comments")
-class DataEntity{
-        @PrimaryKey(autoGenerate = true)
+class DataEntity {
+            @PrimaryKey(autoGenerate = true)
         var count: Int = 0
-        var comments: String=""
+//    @PrimaryKey
+//    @ColumnInfo(name = "search_text")
+    var comments: String = ""
 }

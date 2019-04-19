@@ -8,7 +8,7 @@ import android.content.Context
 /**
  * Created by Ashutosh Ojha on 4/18/19.
  */
-@Database(entities = [DataEntity::class], version = 1)
+@Database(entities = [(DataEntity::class)], version = 1)
 abstract class CommentsDatabase : RoomDatabase() {
     abstract fun commentsDao(): DataDao
 

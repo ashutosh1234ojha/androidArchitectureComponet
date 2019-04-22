@@ -3,6 +3,7 @@ package com.androidarchitecturecomponents.room.init
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
+import android.arch.persistence.room.Update
 
 /**
  * Created by Ashutosh Ojha on 4/15/19.
@@ -13,8 +14,8 @@ interface DataDao {
     @Insert()
     fun addComment(comment: DataEntity)
 
-//    @Update()
-//    fun updateComment(pos: Int)
+    @Update()
+    fun updateComment(comment: DataEntity)
 
 
     @Query("select * from tb_comments" )

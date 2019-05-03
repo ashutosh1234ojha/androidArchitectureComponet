@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.androidarchitecturecomponents.R
-import com.androidarchitecturecomponents.room.init.DataEntity
+import com.androidarchitecturecomponents.room.init.CommentsEntity
 
 /**
  * Created by Ashutosh Ojha on 4/19/19.
  */
-class CommentsAdapter(private val list:MutableList<DataEntity>): RecyclerView.Adapter<CommentsAdapter.MyViewHolder>() {
+class CommentsAdapter(private val list:MutableList<CommentsEntity>): RecyclerView.Adapter<CommentsAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): MyViewHolder {
 
 

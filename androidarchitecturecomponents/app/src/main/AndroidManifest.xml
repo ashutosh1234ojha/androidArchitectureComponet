@@ -24,7 +24,7 @@
         </receiver>
 
         <activity
-            android:name=".room.init.flow.CommentsActivity"
+            android:name=".backstack.ParentActivity"
             android:taskAffinity="com.affinity.a">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -40,7 +40,12 @@
             android:name=".launchmode.ActivityB"
             android:launchMode="singleInstance"/>
         <activity
+            android:name=".uiTesting.SecondActivity"/>
+        <activity
             android:name=".room.init.flow.RoomActivity"/>
+
+        <activity
+            android:name=".room.init.flow.CommentsActivity"/>
         <activity
             android:name=".lifecycle.ActivityB"
             android:launchMode="singleInstance"/>

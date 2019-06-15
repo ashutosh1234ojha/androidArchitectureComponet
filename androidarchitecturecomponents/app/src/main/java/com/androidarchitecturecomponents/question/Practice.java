@@ -3,6 +3,7 @@ package com.androidarchitecturecomponents.question;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Ashutosh Ojha on 12/31/18.
@@ -182,5 +183,64 @@ public class Practice {
             Log.d("Tag", outputList.toString());
 
         }
+    }
+
+    /**
+     * Input : arr[] = {15, 18, 2, 3, 6, 12}
+     * Output: 2
+     * Explanation : Initial array must be {2, 3,
+     * 6, 12, 15, 18}. We get the given array after
+     * rotating the initial array twice.
+     * <p>
+     * Input : arr[] = {7, 9, 11, 12, 5}
+     * Output: 4
+     * <p>
+     * Input: arr[] = {7, 9, 11, 12, 15};
+     * Output: 0
+     */
+
+    void rotationCount() {
+        int arr[] = {7, 9, 11, 12, 5};
+        int pre = arr[0];
+        int count = 0;
+        for (int i = 1; i < arr.length; i++)
+            if ((pre > arr[i])) {
+
+                Log.d("Rotation", i + "Rotation count");
+
+                break;
+
+            }
+    }
+
+    /**
+     * Input : arr = {-1, -1, 6, 1, 9, 3, 2, -1, 4, -1}
+     * Output : [-1, 1, 2, 3, 4, -1, 6, -1, -1, 9]
+     */
+    void rearrangeArray() {
+
+        int[] input = {-1, -1, 6, 1, 9, 3, 2, -1, 4, -1};
+        int[] outOut = new int[input.length];
+
+        for (int i = 0; i < outOut.length; i++) {
+
+
+            outOut[i] = -1;
+
+
+        }
+
+        for (int i = 0; i < input.length; i++) {
+
+            if (input[i] != -1) {
+                outOut[input[i]] = input[i];
+            }
+
+
+        }
+        Log.d("OutPut Array", Arrays.toString(input));
+
+        Log.d("OutPut Array", Arrays.toString(outOut));
+
     }
 }

@@ -26,7 +26,7 @@ public class Main extends AppCompatActivity {
 
 
         findViewById(R.id.btnProgressBar).setOnClickListener(view -> {
-//            Practice practice = new Practice();
+            Practice practice = new Practice();
 //            practice.forwordConsequitivePermutation("This is my name");
 
 //            method1();
@@ -35,15 +35,18 @@ public class Main extends AppCompatActivity {
 
             method4();
 
+            practice.rotationCount();
+            practice.rearrangeArray();
+
 
         });
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(final RadioGroup group, final int checkedId) {
-
-            }
-        });
+//        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(final RadioGroup group, final int checkedId) {
+//
+//            }
+//        });
 
         second();
         method();

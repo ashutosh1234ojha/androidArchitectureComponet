@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="echo"
+            type="com.androidarchitecturecomponents.databinding.Echo" />
+
+        <variable
+            name="handlers"
+            type="com.androidarchitecturecomponents.databinding.EchoActivity.MyClickHandlers" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Text 1"
+            android:text="@{echo.text}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Text 2"
+            android:text="@{echo.text}" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:imageUrl="@{echo.img_url}" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/btn"
+            android:layout_height="wrap_content"
+            android:onClick="@{handlers::onButtonClick}" />
+
+        <include
+            android:id="@+id/content"
+            layout="@layout/layout_main"
+            bind:echo="@{echo}" />
+
+
+    </LinearLayout>
+
+</layout>

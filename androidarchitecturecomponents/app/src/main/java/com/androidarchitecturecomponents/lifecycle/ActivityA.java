@@ -22,12 +22,13 @@ public class ActivityA extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a);
 
-        Log.d(TAG1, "onCreate"+TAG);
+        Log.d(TAG1, "onCreate" + TAG);
 
         findViewById(R.id.new1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                startActivity(new Intent(ActivityA.this, ActivityB.class));
+//                startActivity(new Intent(ActivityA.this, ActivityB.class));
+                finish();
             }
         });
     }
@@ -40,35 +41,49 @@ public class ActivityA extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG1, "onStart"+TAG);
+        Log.d(TAG1, "onStart" + TAG);
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG1, "onSaveInstanceState" + TAG);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(TAG1, "onRestoreInstanceState" + TAG);
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG1, "onResume"+TAG);
+        Log.d(TAG1, "onResume" + TAG);
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG1, "onPause"+TAG);
+        Log.d(TAG1, "onPause" + TAG);
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG1, "onStop"+TAG);
+        Log.d(TAG1, "onStop" + TAG);
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG1, "onDestroy"+TAG);
+        Log.d(TAG1, "onDestroy" + TAG);
 
     }
 

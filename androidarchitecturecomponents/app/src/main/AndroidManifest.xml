@@ -24,7 +24,7 @@
         </receiver>
 
         <activity
-            android:name=".backstack.ParentActivity"
+            android:name=".question.Main"
             android:taskAffinity="com.affinity.a">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -43,6 +43,7 @@
             android:name=".uiTesting.SecondActivity"/>
         <activity
             android:name=".room.init.flow.RoomActivity"/>
+        <receiver android:name=".actionButtonNotification.ActionReceiver" />
 
         <activity
             android:name=".room.init.flow.CommentsActivity"/>

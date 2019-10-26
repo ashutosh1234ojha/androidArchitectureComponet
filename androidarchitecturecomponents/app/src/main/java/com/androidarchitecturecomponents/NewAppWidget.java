@@ -5,6 +5,8 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.widget.RemoteViews;
 
+import java.util.Arrays;
+
 /**
  * Implementation of App Widget functionality.
  */
@@ -39,5 +41,7 @@ public class NewAppWidget extends AppWidgetProvider {
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
     }
+
+
 }
 

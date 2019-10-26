@@ -1,9 +1,11 @@
 package com.androidarchitecturecomponents.room.init
 
+import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
+import android.arch.persistence.room.migration.Migration
 import android.content.Context
 
 /**
@@ -30,7 +32,25 @@ abstract class CommentsDatabase : RoomDatabase() {
                 }
 
         fun buildDatabase(context: Context): CommentsDatabase {
-            return Room.databaseBuilder(context.applicationContext, CommentsDatabase::class.java, DB_NAME).allowMainThreadQueries().build()
+            return Room.databaseBuilder(context.applicationContext, CommentsDatabase::class.java, DB_NAME)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3).allowMainThreadQueries().build()
         }
+
+        val MIGRATION_1_2: Migration = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // Since we didn't alter the table, there's nothing else to do here.
+            }
+        }
+
+        val MIGRATION_2_3: Migration = object : Migration(2, 3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE users " + " ADD COLUMN last_update INTEGER")
+            }
+        }
+
     }
+
+
+
+
 }

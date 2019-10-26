@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.androidarchitecturecomponents.designpattern.FactoryMethod;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -41,16 +42,85 @@ public class HopViewActivity extends AppCompatActivity {
 
         handler.post(runnable);
 
-        btnHop.setOnClickListener(view -> animationFunction());
+        int[] iput = {1, 2, 3, 4, 5};
+
+        int [] ads={2, 1, 5, 3, 4};
+        minimumBribes(ads);
+
+//        btnHop.setOnClickListener(v -> rotLeft(iput, 2));
+        btnHop.setOnClickListener(v -> minimumBribes(ads));
+//        btnHop.setOnClickListener(view -> animationFunction());
 
 
         checkOperator();
 
-        FactoryMethod factoryMethod=new FactoryMethod();
-      boolean a=  factoryMethod.equals(new FactoryMethod());
-      factoryMethod.getClass();
-        HashMap<String,Object> hashMap=new HashMap<>();
-        hashMap.put("",new FactoryMethod());
+        FactoryMethod factoryMethod = new FactoryMethod();
+        boolean a = factoryMethod.equals(new FactoryMethod());
+        factoryMethod.getClass();
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("", new FactoryMethod());
+
+
+
+
+    }
+
+
+    static void minimumBribes(int[] q) {
+        int count=0;
+        boolean check=true;
+        for(int i=0;i<q.length;i++){
+            int diff=q[i]-(i+1);
+            if(diff>2){
+                check=false;
+
+                break;
+
+            }else if(diff>0){
+                count =count+diff;
+
+            }
+
+
+        }
+
+        if(check)
+        {
+            System.out.print("MyCount"+count);
+
+
+        }else{
+            System.out.print("Too chaotic");
+
+        }
+
+
+    }
+
+
+    // Complete the rotLeft function below.
+    void rotLeft(int[] a, int d) {
+
+        int count = d;
+
+        System.out.println(Arrays.toString(a));
+
+
+        while (count != 0) {
+            int temp = a[0];
+            for (int i = 0; i < a.length-1; i++) {
+                a[i] = a[i+1];
+
+            }
+
+            a[a.length - 1] = temp;
+
+            count--;
+        }
+
+
+        System.out.println("Array   "+Arrays.toString(a));
+
     }
 
     /**

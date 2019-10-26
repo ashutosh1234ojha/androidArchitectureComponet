@@ -8,9 +8,9 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class FragmentBuildersModule {
 
-    @ContributesAndroidInjector
-    abstract ProjectFragment contributeProjectFragment();
-
-    @ContributesAndroidInjector
-    abstract ProjectListFragment contributeProjectListFragment();
+//    @ContributesAndroidInjector
+//    abstract ProjectFragment contributePr ojectFragment();
+//
+//    @ContributesAndroidInjector
+//    abstract ProjectListFragment contributeProjectListFragment();
 }

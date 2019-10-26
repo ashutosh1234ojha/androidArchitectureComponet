@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.androidarchitecturecomponents">
+    package="com.androidarchitecturecomponents">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>-->
 
     <application
         android:allowBackup="true"
@@ -15,54 +16,65 @@
         android:theme="@style/AppTheme">
         <receiver android:name=".NewAppWidget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/new_app_widget_info"/>
+                android:resource="@xml/new_app_widget_info" />
         </receiver>
 
         <activity
-            android:name=".question.Main"
+            android:name=".room.init.flow.UserActivity"
             android:taskAffinity="com.affinity.a">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <service android:name=".download.DownloadService"/>
+        <service android:name=".download.DownloadService" />
 
         <activity
             android:name=".launchmode.ActivityB"
-            android:launchMode="singleInstance"/>
-        <activity
-            android:name=".uiTesting.SecondActivity"/>
-        <activity
-            android:name=".room.init.flow.RoomActivity"/>
+            android:launchMode="singleInstance" />
+        <activity android:name=".uiTesting.SecondActivity" />
+        <activity android:name=".room.init.flow.RoomActivity" />
+
         <receiver android:name=".actionButtonNotification.ActionReceiver" />
 
-        <activity
-            android:name=".room.init.flow.CommentsActivity"/>
+        <activity android:name=".room.init.flow.CommentsActivity" />
         <activity
             android:name=".lifecycle.ActivityB"
-            android:launchMode="singleInstance"/>
-        <activity android:name=".contentprovider.DateTimePickerActivity"/>
-        <activity android:name=".sharedTransition.DetailsActivity"/> <!-- <activity -->
+            android:launchMode="singleInstance" />
+        <activity android:name=".contentprovider.DateTimePickerActivity" />
+        <activity android:name=".sharedTransition.DetailsActivity" /> <!-- <activity -->
         <!-- android:name=".threadpoolexecutor.AActivity"/> -->
         <!-- <activity android:name=".threadpoolexecutor.BActivity"/> -->
         <receiver android:name=".widget.SimpleAppWidget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/simple_app_widget_info"/>
+                android:resource="@xml/simple_app_widget_info" />
         </receiver>
+
+        <activity android:name=".stack.ListBActivity" />
+        <activity android:name=".stack.ListAActivity" />
+        <activity android:name=".stack.DetailsActivity" />
+        <activity android:name=".stack.DetailsBActivity" />
+        <!--<activity android:name=".stack.ParentActivity" />-->
+
+        <!--<receiver android:name=".broadcast.MyBoradcast">-->
+            <!--<intent-filter >-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED"/>-->
+                <!--<action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
     </application>
 
 </manifest>

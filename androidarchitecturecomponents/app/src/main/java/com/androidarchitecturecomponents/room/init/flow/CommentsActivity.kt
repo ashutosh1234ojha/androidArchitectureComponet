@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.widget.Button
 import com.androidarchitecturecomponents.R
 import com.androidarchitecturecomponents.room.init.CommentsDatabase
 import com.androidarchitecturecomponents.room.init.CommentsEntity
+import kotlinx.android.synthetic.main.activity_comments.*
 
 
 /**
@@ -34,8 +34,8 @@ class CommentsActivity : AppCompatActivity() {
 
     fun init() {
 
-        val rvComments = findViewById<RecyclerView>(R.id.rvComments)
-        val btnAdd = findViewById<Button>(R.id.btnAdd)
+//        val rvComments = findViewById<RecyclerView>(R.id.rvComments)
+//        val btnAdd = findViewById<Button>(R.id.btnAdd)
         val swipeRefresh = findViewById<SwipeRefreshLayout>(R.id.swipeRefresh)
         rvComments.layoutManager = LinearLayoutManager(applicationContext)
 

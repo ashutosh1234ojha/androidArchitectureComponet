@@ -1,10 +1,7 @@
 package com.androidarchitecturecomponents.room.init
 
 import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
-import android.arch.persistence.room.Update
+import android.arch.persistence.room.*
 
 /**
  * Created by Ashutosh Ojha on 4/15/19.
@@ -12,7 +9,7 @@ import android.arch.persistence.room.Update
 @Dao
 interface DataDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addComment(comment: CommentsEntity)
 
     @Update

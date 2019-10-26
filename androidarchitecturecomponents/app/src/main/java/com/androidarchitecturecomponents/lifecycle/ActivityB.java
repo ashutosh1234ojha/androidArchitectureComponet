@@ -20,6 +20,7 @@ public class ActivityB extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a);
         Log.d(TAG1, "onCreate"+TAG);
+
     }
 
     @Override
